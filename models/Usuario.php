@@ -22,15 +22,15 @@ class Usuario extends ActiveRecord {
     
     public function __construct($args = [])
     {
-        $this->id = $args['id'] ?? null;
-        $this->nombre = $args['nombre'] ?? '';
-        $this->apellido = $args['apellido'] ?? '';
-        $this->email = $args['email'] ?? '';
-        $this->password = $args['password'] ?? '';
-        $this->password2 = $args['password2'] ?? '';
+        $this->id = $args['id'] ?? NULL;
+        $this->nombre = $args['nombre'] ?? NULL;
+        $this->apellido = $args['apellido'] ?? NULL;
+        $this->email = $args['email'] ?? NULL;
+        $this->password = $args['password'] ?? NULL;
+        $this->password2 = $args['password2'] ?? NULL;
         $this->confirmado = $args['confirmado'] ?? 0;
-        $this->token = $args['token'] ?? '';
-        $this->admin = $args['admin'] ?? '';
+        $this->token = $args['token'] ?? NULL;
+        $this->admin = $args['admin'] ?? NULL;
     }
 
     // Validar el Login de Usuarios

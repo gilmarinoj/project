@@ -81,9 +81,12 @@ class AuthController {
 
                     // Eliminar password2
                     unset($usuario->password2);
-
+                    unset($usuario->admin);
+                    
                     // Generar el Token
                     $usuario->crearToken();
+                    echo uniqid();
+
 
                     // Crear un nuevo usuario
                     $resultado =  $usuario->guardar();
@@ -92,9 +95,11 @@ class AuthController {
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarConfirmacion();
                     
-                    debuguear($resultado);     
                     if($resultado) {
                         header('Location: /mensaje');
+                    }else{
+                        Usuario::setAlerta('error', 'Ha ocurrido un error interno');
+                        $alertas = Usuario::getAlertas();
                     }
                 }
             }
