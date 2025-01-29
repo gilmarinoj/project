@@ -2,8 +2,11 @@
     <h2 class="auth__heading"><?php echo $titulo ?></h2>
     <p class="auth__texto">Inicia sesion en EventConnect</p>
 
+    <?php 
+        REQUIRE_ONCE __DIR__ . '/../templates/alertas.php';
+    ?>
 
-    <form class="formulario">
+    <form method="POST" action="/login" class="formulario">
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
             <input

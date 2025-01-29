@@ -1,9 +1,12 @@
 <main class="auth">
-    <h2 class="auth__heading"><?php echo $titulo ?></h2>
+    <h2 class="auth__heading"><?php echo $titulo; ?></h2>
     <p class="auth__texto">Recupera tu acceso a EventConnect</p>
 
+    <?php 
+        REQUIRE_ONCE __DIR__ . '/../templates/alertas.php';
+    ?>
 
-    <form class="formulario">
+    <form method="POST" action="/olvide" class="formulario">
         <div class="formulario__campo">
             <label for="email" class="formulario__label">Email</label>
             <input
