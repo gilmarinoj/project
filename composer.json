@@ -1,7 +1,7 @@
 {
-    "name": "juandelatorre/devwebcamp",
+    "name": "gilmarinoj",
     "description": "Proyecto PHP 8, MVC, SQL, BEM, SASS",
-    "type": "project",
+    "type": "EventConnect",
     "autoload": {
         "psr-4": {
             "MVC\\" : "./",
@@ -12,7 +12,7 @@
     },
     "authors": [
         {
-            "name": "Juan Pablo De la torre Valdez https://twitter.com/@codigoconjuan https://codigoconjuan.com "
+            "name": "Marino Gil "
         }
     ],
     "require": {
