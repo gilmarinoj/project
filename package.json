@@ -1,7 +1,7 @@
 {
-  "name": "devwebcamp-php-mvc-mysql",
-  "version": "1.0.0",
-  "description": "Proyecto Final Desarrollo Web Completo con @codigoconjuan",
+  "name": "eventconnect",
+  "version": "2.0.0",
+  "description": "Aplicacion Web para la gestion de Conferencias y Talleres",
   "main": "index.js",
   "scripts": {
     "dev": "gulp dev"

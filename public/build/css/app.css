@@ -404,18 +404,46 @@ h3 {
   font-size: 1.8rem;
   color: rgba(26, 27, 21, 0.8);
 }
-.formulario__input, .formulario__input--sociales {
+.formulario__input, .formulario__input--sociales, .formulario__select--sociales, .formulario__select {
   padding: 1rem;
   border: 1px solid rgb(176.6, 199, 221.4);
   border-radius: 0.5rem;
 }
-.formulario__input--file {
+.formulario__input--file, .formulario__select--file {
   border: none;
 }
-.formulario__input--sociales {
+.formulario__input--sociales, .formulario__select--sociales {
   flex: 1;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.formulario__radio {
+  display: flex;
+  gap: 2rem;
+}
+.formulario__texto {
+  margin-top: 3rem;
+}
+.formulario__imagen {
+  max-width: 20rem;
+}
+.formulario__listado {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.formulario__listado > li {
+  background-color: #007df4;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  columns: #FFFFFF;
+  font-weight: 700;
+  color: #FFFFFF;
 }
 .formulario__submit {
   background-color: #007df4;
@@ -453,6 +481,44 @@ h3 {
   color: #1a1b15;
   font-size: 1.4rem;
   font-weight: 300;
+}
+
+.horas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .horas {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.horas__hora, .horas__hora--deshabilitado, .horas__hora--seleccionado {
+  color: #007df4;
+  border: 1px solid #007df4;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+.horas__hora:hover, .horas__hora--deshabilitado:hover, .horas__hora--seleccionado:hover {
+  cursor: pointer;
+}
+.horas__hora--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
+}
+.horas__hora--deshabilitado {
+  border: 1px solid #64748B;
+  color: #64748B;
+  opacity: 0.5;
+}
+.horas__hora--deshabilitado:hover {
+  cursor: not-allowed;
 }
 
 .header {
@@ -763,6 +829,7 @@ h3 {
 .dashboard__grid {
   display: flex;
   flex: 1;
+  overflow-y: auto;
 }
 .dashboard__sidebar {
   background-color: rgb(47.191011236, 64.4943820225, 92.808988764);
@@ -799,6 +866,7 @@ h3 {
 .dashboard__contenido {
   padding: 1rem 1rem 3rem 1rem;
   width: 100%;
+  overflow-y: scroll;
 }
 @media (min-width: 768px) {
   .dashboard__contenido {
@@ -846,5 +914,116 @@ h3 {
 .dashboard__formulario {
   width: min(95%, 80rem);
   margin: 0 auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table__thead {
+  background-color: #1E293B;
+  color: #FFFFFF;
+}
+.table__th, .table__th--acciones {
+  padding: 1rem;
+  text-align: left;
+}
+.table__th--acciones {
+  text-align: right;
+  padding-right: 6.5rem;
+}
+.table__tr:nth-of-type(even) {
+  background-color: #F8FAFC;
+}
+.table__td, .table__td--acciones {
+  padding: 1.5rem 1rem;
+}
+.table__td--acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  align-items: center;
+}
+.table__accion {
+  all: unset;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.table__accion--editar {
+  color: #007df4;
+}
+.table__accion--eliminar {
+  color: rgb(169, 0, 0);
+}
+
+.paginacion {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .paginacion {
+    justify-content: flex-end;
+  }
+}
+.paginacion__enlace {
+  color: #007df4;
+  font-size: 1.8rem;
+}
+.paginacion__enlace--texto {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #007df4;
+}
+.paginacion__enlace--texto:hover {
+  background-color: #007df4;
+  color: #FFFFFF;
+}
+.paginacion__enlace--numero {
+  font-weight: 700;
+  display: none;
+}
+@media (min-width: 768px) {
+  .paginacion__enlace--numero {
+    display: inline;
+  }
+}
+.paginacion__enlace--actual {
+  color: #64748B;
+  font-weight: 700;
+  display: none;
+}
+@media (min-width: 768px) {
+  .paginacion__enlace--actual {
+    display: inline;
+  }
+}
+
+.listado-ponentes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+.listado-ponentes__ponente, .listado-ponentes__ponente--seleccionado {
+  color: #007df4;
+  border: 1px solid #007df4;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+.listado-ponentes__ponente:hover, .listado-ponentes__ponente--seleccionado:hover {
+  cursor: pointer;
+}
+.listado-ponentes__ponente--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
 }
 /*# sourceMappingURL=app.css.map */

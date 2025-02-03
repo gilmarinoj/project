@@ -153,3 +153,27 @@
 @mixin shadow {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
+
+@mixin reset-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin tags {
+  @include reset-lista;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+
+  > li {
+    background-color: v.$azul;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    columns: v.$blanco;
+    font-weight: v.$bold;
+    color: v.$blanco;
+  }
+}
