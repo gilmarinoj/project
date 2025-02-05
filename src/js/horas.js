@@ -1,9 +1,7 @@
 (function () {
     const horas = document.querySelector("#horas");
 
-
-
-    if (horas.length > 0) {        
+    if (horas) {        
         const categoria = document.querySelector('[name="categoria_id"]');
         const dias = document.querySelectorAll('[name="dia"]');
         const inputHiddenDia = document.querySelector('[name="dia_id"]');

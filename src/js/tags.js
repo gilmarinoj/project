@@ -1,7 +1,5 @@
 (function() {
     const tagsInput = document.querySelector('#tags_input');
-    console.log(tagsInput);
-
 
     if(tagsInput) {
 

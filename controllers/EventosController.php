@@ -23,7 +23,7 @@ class EventosController
             header('Location: /admin/eventos?page=1');
         }
 
-        $registros_por_pagina = 1;
+        $registros_por_pagina = 5;
         $total_registros = Evento::total();
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
 
@@ -35,7 +35,7 @@ class EventosController
 
         $eventos = Evento::paginar($registros_por_pagina, $paginacion->offset());
 
-        if(empty($eventos)){
+        if(empty($eventos) && $pagina_actual > 1){
             header('Location: /admin/eventos?page=1');
         }
 
@@ -59,6 +59,10 @@ class EventosController
 
     public static function crear(Router $router)
     {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
 
         $alertas = [];
 

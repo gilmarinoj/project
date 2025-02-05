@@ -11,7 +11,7 @@
                     &#60;EventConnect />
                 </h1>
             </a>
-            <p class="header__texto">Diciembre 12-13-2024</p>
+            <p class="header__texto">Diciembre 07-02-2025</p>
             <p class="header__texto header__texto--modalidad">En linea - Presencial</p>
 
             <a href="/registro" class="header__boton">Comprar Pase</a>
@@ -27,8 +27,8 @@
             </h2>
         </a>
         <nav class="navegacion">
-            <a href="/eventconnect" class="navegacion__enlace">Evento</a>
-            <a href="/paquetes" class="navegacion__enlace">Paquetes</a>
+            <a href="/sobre-nosotros" class="navegacion__enlace">Sobre Nosotros</a>
+            <a href="/pases" class="navegacion__enlace">Pases</a>
             <a href="/workshops-conferencias" class="navegacion__enlace">Workshops / Conferencias</a>
             <a href="/registro" class="navegacion__enlace">Comprar Pase</a>
         </nav>

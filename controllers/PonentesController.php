@@ -20,6 +20,7 @@ class PonentesController
         $pagina_actual = $_GET['page'] ?? 1;
         $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
 
+
         if (!$pagina_actual || $pagina_actual < 1) {
             header('Location: /admin/ponentes?page=1');
         }
@@ -28,11 +29,17 @@ class PonentesController
         $total_registros = Ponente::total();
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
 
-        if($paginacion->total_paginas() < $pagina_actual){
+        if ($pagina_actual < 1) {
+            header('Location: /admin/ponentes?page=1');
+        } elseif ($pagina_actual != 1 && $paginacion->total_paginas() == 0){
             header('Location: /admin/ponentes?page=1');
         }
 
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
+
+        if(empty($ponentes) && $pagina_actual > 1){
+            header('Location: /admin/ponentes?page=1');
+        }
 
 
 
@@ -45,10 +52,19 @@ class PonentesController
 
     public static function crear(Router $router)
     {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
         $alertas = [];
         $ponente = new Ponente;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!is_admin()) {
+                header('Location: /login');
+            }
 
             //Leer imagen
             if (! empty($_FILES['imagen']['tmp_name'])) {
@@ -98,6 +114,10 @@ class PonentesController
     public static function editar(Router $router)
     {
 
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
         $alertas = [];
         // Validar el ID
         $id = $_GET['id'];
@@ -117,6 +137,10 @@ class PonentesController
         $ponente->imagen_actual = $ponente->imagen;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!is_admin()) {
+                header('Location: /login');
+            }
 
 
             //Leer imagen
@@ -167,7 +191,16 @@ class PonentesController
 
     public static function eliminar()
     {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!is_admin()) {
+                header('Location: /login');
+            }
 
             $id = $_POST['id'];
             $ponente = Ponente::find($id);
